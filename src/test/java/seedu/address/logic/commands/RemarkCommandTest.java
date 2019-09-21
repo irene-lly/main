@@ -12,6 +12,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.AddressBook;
@@ -47,7 +48,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_deleteRemarkUnfilteredList_success(){
+    public void execute_deleteRemarkUnfilteredList_success() {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Person editedPerson = new PersonBuilder(firstPerson).withRemark("").build();
 
@@ -63,7 +64,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_filteredList_success(){
+    public void execute_filteredList_success() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
@@ -81,7 +82,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_invalidPersonIndexUnfilteredList_failure(){
+    public void execute_invalidPersonIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
         RemarkCommand remarkCommand = new RemarkCommand(outOfBoundIndex, new Remark(VALID_REMARK_BOB));
 
@@ -89,10 +90,10 @@ public class RemarkCommandTest {
     }
 
 
-        @Test
-    public void equals(){
+    @Test
+    public void equals() {
         final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_PERSON,
-                new Remark(VALID_REMARK_AMY));
+            new Remark(VALID_REMARK_AMY));
 
         // same values -> returns true
         RemarkCommand commandWithSameValues = new RemarkCommand(INDEX_FIRST_PERSON,
